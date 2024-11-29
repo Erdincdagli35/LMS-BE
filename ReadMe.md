@@ -36,8 +36,6 @@ This repository contains the **backend implementation** of a simple **Library Ma
 
 ## **Docker Deployment**
 
-    ```bash
-    docker pull erdincdagli/lms:latest
-    docker run -d -p 8080:8080 erdincdagli/lms:latest
-
-Docker Hub Link : https://hub.docker.com/repository/docker/erdincdagli/lms
+```bash
+docker pull erdincdagli/lms:latest
+docker run -d -p 8080:8080 erdincdagli/lms:latest
