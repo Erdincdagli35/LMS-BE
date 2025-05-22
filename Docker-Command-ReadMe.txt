@@ -1,4 +1,4 @@
-Dockerfile Oluştur
+Create Dockerfile 
 
 FROM openjdk:11-jdk-slim
 COPY lms-0.0.1-SNAPSHOT.jar app.jar
@@ -6,9 +6,9 @@ ENTRYPOINT ["java", "-jar", "/app.jar"]
 
 -----------------------------------------
 
-Docker Ignore Dosyası
+Create Docker Ignore file
 
-target/
+target /
 *.log
 *.iml
 .DS_Store
@@ -16,19 +16,18 @@ target/
 
 ----------------------------
 
-Proje Build Et
-
+Build project
 mvn clean package
 
 -------------------------------
 
-Docker Image Oluştur
+Create Docker Image 
 
 docker build -t lms:0.0.1 .
 
 ---------------------------------
 
-Docker Container Çalıştır
+Run Docker Container 
 
 docker run -d -p 9090:8080 --name lms lms:0.0.1
 
