@@ -27,7 +27,7 @@ import java.util.List;
 @RequestMapping("/shelves")
 @EnableAutoConfiguration
 @CrossOrigin(origins = {"http://localhost:4200",
-                        "https://librarymanagementsystem.up.railway.app"})
+                        "https://lms.up.railway.app"})
 public class ShelfController {
 
     @Autowired
