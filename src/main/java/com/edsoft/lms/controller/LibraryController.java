@@ -29,7 +29,7 @@ import java.util.List;
 @RequestMapping("/libraries")
 @EnableAutoConfiguration
 @CrossOrigin(origins = {"http://localhost:4200",
-                        "https://lms.up.railway.app"})
+                        "https://lmss.up.railway.app"})
 public class LibraryController {
     @Autowired
     LibraryService libraryService;
