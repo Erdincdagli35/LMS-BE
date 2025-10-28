@@ -22,7 +22,9 @@ public class BookServiceImp implements BookService {
 
     @Override
     public Book edit(Book book) {
-        return bookRepository.save(book);
+        bookRepository.save(book);
+        bookRepository.flush();
+        return book;
     }
 
     @Override

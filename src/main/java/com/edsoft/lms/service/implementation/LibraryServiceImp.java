@@ -27,7 +27,9 @@ public class LibraryServiceImp implements LibraryService {
     @Override
     public Long create(Library library) {
         library.setCurrentCapacity(library.getCapacity());
-        return libraryRepository.save(library).getId();
+        libraryRepository.save(library);
+        libraryRepository.flush();
+        return library.getId();
     }
 
     public void setCurrentCapacityWhenSavedTheShelf(Library library) {
@@ -53,7 +55,9 @@ public class LibraryServiceImp implements LibraryService {
         libraryTemp.setCapacity(library.getCapacity());
         libraryTemp.setCurrentCapacity(library.getCapacity());
 
-        return libraryRepository.save(libraryTemp);
+        libraryRepository.save(libraryTemp);
+        libraryRepository.flush();
+        return libraryTemp;
     }
 
     @Override
@@ -74,6 +78,7 @@ public class LibraryServiceImp implements LibraryService {
         //library.getShelves().addAll(shelf);
         shelfRepository.save(shelf);
         libraryRepository.save(library);
+        libraryRepository.flush();
         return shelf.getId(); //shelves.stream().map(Shelf::getId).toList();
     }
 
@@ -87,10 +92,12 @@ public class LibraryServiceImp implements LibraryService {
         for (Shelf shelf : library.getShelves()) {
             shelf.setLibrary(null);
             shelfRepository.save(shelf);
+            shelfRepository.flush();
         }
         library.setShelves(null);
         library.setCurrentCapacity(library.getCapacity());
         libraryRepository.save(library);
+        libraryRepository.flush();
 
         return shelveIds;
     }

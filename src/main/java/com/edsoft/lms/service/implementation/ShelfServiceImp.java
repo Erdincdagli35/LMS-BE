@@ -49,7 +49,9 @@ public class ShelfServiceImp implements ShelfService {
         shelfTemp.setName(shelf.getName());
         shelfTemp.setStorage(shelf.getStorage());
 
-        return shelfRepository.save(shelfTemp);
+        shelfRepository.save(shelfTemp);
+        shelfRepository.flush();
+        return shelfTemp;
     }
 
     @Override
@@ -57,6 +59,7 @@ public class ShelfServiceImp implements ShelfService {
         Library library = shelf.getLibrary();
         library.setCurrentCapacity(library.getCapacity() - shelf.getStorage());
         libraryRepository.save(library);
+        libraryRepository.flush();
         shelf.setLibrary(null);
         shelfRepository.delete(shelf);
         return shelf.getId();
